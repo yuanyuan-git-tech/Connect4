@@ -1,0 +1,17 @@
+version: '3'
+services:
+  apache:
+    build:
+      context: ./httpd
+    ports:
+      - "80:80"
+    depends_on:
+      - node
+
+  node:
+    build:
+      context: ./node
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./node:/app
